@@ -1,0 +1,7 @@
+- id: message-shorthand
+  name: Commit Message Shorthand
+  description: Allows the use short aliases in commit message which are rephrased by long common phrases, such as Coauthor information.
+  entry: message_shorthand
+  language: python
+  stages:
+    - commit-msg
