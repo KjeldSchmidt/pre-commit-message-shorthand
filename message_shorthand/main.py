@@ -12,6 +12,7 @@ def main():
     args = parser.parse_args()
 
     print_arguments(args.filenames)
+    exit(1)
 
 
 if __name__ == "__main__":
