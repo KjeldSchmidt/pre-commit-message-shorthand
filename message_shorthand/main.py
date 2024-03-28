@@ -1,5 +1,7 @@
 import argparse
 
+print("Top level print.")
+
 
 def print_arguments(arguments: list[str]):
     for argument in arguments:
@@ -7,6 +9,7 @@ def print_arguments(arguments: list[str]):
 
 
 def main():
+    print("Print in main")
     parser = argparse.ArgumentParser()
     parser.add_argument("filenames", nargs="*")
     args = parser.parse_args()
@@ -16,4 +19,5 @@ def main():
 
 
 if __name__ == "__main__":
+    print("Print in __main__ gate")
     main()
