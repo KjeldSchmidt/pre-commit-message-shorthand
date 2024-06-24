@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 from typing import Mapping
 
@@ -105,4 +106,5 @@ def parse_and_validate_substitutions(substitutions_string: str) -> dict[str, str
 
 
 if __name__ == "__main__":
+    print(sys.argv)
     main()
