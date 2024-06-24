@@ -44,6 +44,7 @@ def substitute_commit_msg(
 
 
 @click.command()
+@click.argument("substitutions")
 @click.argument(
     "commit_msg_file",
     type=click.Path(
@@ -54,7 +55,6 @@ def substitute_commit_msg(
         path_type=Path,
     ),
 )
-@click.argument("substitutions")
 def main(commit_msg_file: Path, substitutions: str) -> None:
     """
     Substitute strings in COMMIT_MESSAGE_FILE according to SUBSTITUTIONS.
@@ -104,6 +104,6 @@ def parse_and_validate_substitutions(substitutions_string: str) -> dict[str, str
             raise SubstitutionMapInvalidError
     return parsed_dict
 
-print(sys.argv)
+
 if __name__ == "__main__":
     main()
