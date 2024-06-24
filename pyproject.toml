@@ -9,6 +9,9 @@ authors = ["Kjeld Schmidt <contact@kjeld-schmidt.com>"]
 license = "MIT"
 readme = "README.md"
 
+[tool.poetry.scripts]
+message_shorthand = "message_shorthand:main"
+
 [tool.poetry.dependencies]
 python = "^3.12"
 click = "^8.1.7"
