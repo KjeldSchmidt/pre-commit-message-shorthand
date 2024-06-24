@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "message-shorthand"
-version = "0.9.5"
+version = "0.10.0"
 description = "Allows the use short aliases in commit message which are rephrased by long common phrases, such as Coauthor information."
 authors = ["Kjeld Schmidt <contact@kjeld-schmidt.com>"]
 license = "MIT"
@@ -9,26 +9,49 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
+click = "^8.1.7"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.10.0"
 pytest = "^8.2.2"
 ruff = "^0.4.10"
+pytest-mock = "^3.14.0"
 
-[tool.poe.tasks]
-test          = "pytest ."
-type-check    = "mypy message_shorthand/"
-format        = "ruff format message_shorthand/"
-lint          = "ruff check message_shorthand/"
-quality-gates = ["format", "lint", "type-check", "test"]
+[tool.poe.tasks.test]
+cmd = "pytest ."
+help = "Runs all tests in the project"
+
+[tool.poe.tasks.type-check]
+cmd = "mypy message_shorthand/"
+help = "Performs type analysis against all code"
+
+[tool.poe.tasks.format]
+cmd = "ruff format message_shorthand/"
+help = "Applies automatic formatting - recommended locally"
+
+[tool.poe.tasks.format-check]
+cmd = "ruff format message_shorthand/ --check"
+help = "Verifies that the formatting is correct - recommended on CI"
+
+[tool.poe.tasks.lint]
+cmd = "ruff check message_shorthand/ --fix"
+help = "Lints and applies basic fixes where possible. Recommended locally"
+
+[tool.poe.tasks.lint-check]
+cmd = "ruff check message_shorthand/"
+help = "Verifies that there are no linting issues - recommended on CI"
+
+[tool.poe.tasks.quality-gates]
+sequence = ["format", "lint", "type-check", "test"]
+help = "Runs all quality gates in sequence. Recommended before commit."
 
 [tool.ruff.lint]
 select = ["ALL"]
 ignore = [
-    # These rules are inherently in conflict with another, so we picked our preference.
+    # These rules are inherently in conflict with others, so we picked our preference.
     "D203", # one-blank-line-before-class (docstring placement)
     "D212", # multi-line-summary-first-line (docstring formatting)
-    # These rules can conflict with the formatter and are handled by it
+    # These rules should never occur if we use the ruff formater
     # Disabling them is recommended here: https://docs.astral.sh/ruff/formatter/#conflicting-lint-rules
     "W191", "E111", "E114", "E117", "D206", "D300", "Q000", "Q001", "Q002", "Q003", "COM812", "COM819", "ISC001", "ISC002",
 ]
