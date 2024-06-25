@@ -25,8 +25,8 @@ user.
 
 The rules for substitution are configured as a JSON-dictionary. To use this hook,
 add the following to your `.pre-commit-config.yaml`. 🚨Note the first line - 
-**it won't work without adding `commit-msg` to the `default_install_hook_types` 
-property.**🚨
+**it won't work without adding `commit-msg` to the `default_install_hook_types`
+property.** 🚨
 
 ```yaml
 default_install_hook_types: [pre-commit, commit-msg]
