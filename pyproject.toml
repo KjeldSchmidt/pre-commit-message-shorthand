@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "message-shorthand"
-version = "0.10.2"
+version = "1.0.0"
 description = "Allows the use short aliases in commit message which are rephrased by long common phrases, such as Coauthor information."
 authors = ["Kjeld Schmidt <contact@kjeld-schmidt.com>"]
 license = "MIT"
