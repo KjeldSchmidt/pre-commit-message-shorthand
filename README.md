@@ -20,8 +20,8 @@ https://acme.atlassian.net/browse/project-4567
 Co-authored-by: Robert Person <robert.person@acme.com>
 ```
 
-This is achieved through simple string replacement, fully configured by the end
-user.
+This is achieved through simple string replacement, fully configured in your 
+pre-commit configuration. There are no default substitutions.
 
 The rules for substitution are configured as a JSON-dictionary. To use this hook,
 add the following to your `.pre-commit-config.yaml`. 🚨Note the first line - 
