@@ -41,6 +41,6 @@ repos:
           - >
             {
               "#jira/": "https://acme.atlassian.net/browse/project-",
-              ":robert": "Co-authored-by: Robert Person <robert@person.com>"
+              ":robert": "Co-authored-by: Robert Person <robert.person@acme.com>"
             }
 ```
